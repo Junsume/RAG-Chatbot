@@ -25,7 +25,7 @@ Welcome to MindMend, an empathetic chatbot designed to provide support to indivi
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/mindmend-chatbot.git
+   git clone https://github.com/your-username/RAG-Chatbot.git
    cd mindmend-chatbot
    ```
 
