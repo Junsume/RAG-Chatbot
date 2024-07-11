@@ -5,6 +5,8 @@ from langchain_community.llms import HuggingFaceEndpoint
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 import os
 from dotenv import load_dotenv
 
@@ -40,20 +42,27 @@ class RAGChatbot:
         )
 
     def initialize_qa_chain(self):
-        # llm = HuggingFaceHub(
-        #     huggingfacehub_api_token=os.getenv("HUGGINGFACE_API_TOKEN"),
-        #     repo_id="tiiuae/falcon-7b-instruct",
-        #     model_kwargs={"temperature": 0.7, "max_new_tokens": 500},
-        # )
         HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
         llm = HuggingFaceEndpoint(
             repo_id="tiiuae/falcon-7b-instruct", max_length=500, temperature=0.5, token=HUGGINGFACEHUB_API_TOKEN
+        )
+        prompt_template = """You are an empathetic assistant providing support to individuals facing mental trauma.
+        Use the following context to respond to their concerns.
+        If uncertain, acknowledge it. Keep your response empathetic and concise.
+
+        Context: {context}
+        Question: {question}
+        Answer:"""
+        
+        PROMPT = PromptTemplate(
+            template=prompt_template, input_variables=["context", "question"]
         )
 
         self.qa = RetrievalQA.from_chain_type(
             llm=llm,
             chain_type="stuff",
-            retriever=self.docsearch.as_retriever()
+            retriever=self.docsearch.as_retriever(),
+            chain_type_kwargs={"prompt": PROMPT}
         )
 
     def chat(self, query):
@@ -64,5 +73,5 @@ class RAGChatbot:
 # # testing
 # bot = RAGChatbot()
 # input = input("Ask me anything: ")
-# result = bot.chat(query=input)
+# result = bot.chat(query=input)["result"]
 # print(result)
