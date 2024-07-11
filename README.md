@@ -66,19 +66,13 @@ To run the chatbot using Streamlit:
 
 To run the chatbot using Chainlit:
 
-1. **Install Chainlit:**
-
-   ```bash
-   pip install chainlit
-   ```
-
-2. **Run the Chainlit app:**
+1. **Run the Chainlit app:**
 
    ```bash
    chainlit run chainlit.py
    ```
 
-3. **Open your browser:**
+2. **Open your browser:**
 
    The Chainlit app will typically run on `http://localhost:8000`.
 
