@@ -1,4 +1,3 @@
-# End-to-End-RAG-Chatbot
 # MindMend Chatbot
 
 Welcome to MindMend, an empathetic chatbot designed to provide support to individuals facing mental trauma. This project leverages Pinecone for vector storage, Langchain for chaining models, and Streamlit and Chainlit for the user interface. 
@@ -11,7 +10,6 @@ Welcome to MindMend, an empathetic chatbot designed to provide support to indivi
   - [Chainlit](#chainlit)
 - [Configuration](#configuration)
 - [Project Structure](#project-structure)
-- [License](#license)
 
 ## Installation
 
