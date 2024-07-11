@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-huggingface
+langchain-pinecone
+openai
+sentence-transformers  # Optional, if you uncomment SentenceTransformerEmbeddings
+faiss-cpu  # Optional, for using FAISS for retrieval (may be included in langchain-pinecone)
+transformers
+dotenv
