@@ -3,13 +3,14 @@ import streamlit as st
 
 bot = RAGChatbot()
     
-st.set_page_config(page_title="Random Fortune Telling Bot")
+st.set_page_config(page_title="MindMend-Chatbot")
 with st.sidebar:
     st.title('MindMend')
 
 # Function for generating LLM response
 def generate_response(input):
     result = bot.chat(query=input)
+    result = result["result"]
     return result
 
 # Store LLM generated responses
