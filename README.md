@@ -80,7 +80,7 @@ The configuration of the chatbot is managed through environment variables and th
 
 - `PINECONE_API_KEY`: Your Pinecone API key.
 - `HUGGINGFACEHUB_API_TOKEN`: Your Hugging Face Hub API token.
-- `index_name`: The name of the Pinecone index (default: `langchain-fdemo`).
+- `index_name`: The name of the Pinecone index.
 - `namespace`: The namespace within the Pinecone index (default: `english`).
 
 ## Project Structure
